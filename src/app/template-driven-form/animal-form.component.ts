@@ -12,7 +12,7 @@ import { Animal } from '../types';
 export class AnimalFormComponent {
   regimes = ['herbivore', 'carnivore', 'omnivore', 'frugivore'];
   //model = new Animal(1, 'Lion', this.regimes[1], 'Le roi de la savane.');
-  model: Animal = { id: 1, name: 'Léo', type: 'Lion', regime: this.regimes[1], desc: 'Le roi de la savane.', phone: '0610421109' };
+  model: Animal = { id: 1, name: 'Leo', type: 'Lion', regime: this.regimes[1], desc: 'Le roi de la savane.', phone: '0610421109' };
   estEnvoye = false;
 
   surEnvoi() {

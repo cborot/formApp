@@ -1,9 +1,8 @@
 <p>{{ model | json }}</p>
 <form #animalForm="ngForm" (ngSubmit)="surEnvoi()" [hidden]="estEnvoye">
     <label for="phone">Téléphone du propriétaire</label>
-    <input type="text" name="phone" id="phone" [(ngModel)]="model.phone" #phone="ngModel" required
-        phoneFormat="/^\+33\d{9}$/" />
-    @if (phone.hasError('phoneValidator')) {
+    <input type="text" name="phone" id="phone" [(ngModel)]="model.phone" #phone="ngModel" required phoneFormat />
+    @if (phone.hasError('phoneFormatNotAllowed')) {
     <div class="alert-msg">Format invalide. Exemple : +33645789629</div>
     }
 

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AnimalFormComponent } from './template-driven-form/animal-form.component';
 import { UserFormComponent } from './reactive-form/user-form.component';
-import { PhoneValidatorDirective } from './template-driven-form/custom-validator.directive';
+import { PhoneValidatorDirective } from './validator.directive';
 
 @NgModule({
   declarations: [

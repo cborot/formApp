@@ -32,57 +32,25 @@
     <div class="form-group">
       <label>Adresse email</label>
       <input type="email" formControlName="email" class="form-control" />
-      <div
-        *ngIf="
-          registrationForm.get('email')?.invalid &&
-          registrationForm.get('email')?.touched
-        "
-        class="text-danger"
-      >
-        Veuillez saisir une adresse email valide.
-      </div>
+      <div class="text-danger">{{ showErrorMessage("email") }}</div>
     </div>
     <!-- Champ pour le téléphone -->
     <div class="form-group">
       <label>Téléphone</label>
       <input type="text" formControlName="phone" class="form-control" />
-      <div
-        *ngIf="
-          registrationForm.get('phone')?.invalid &&
-          registrationForm.get('phone')?.touched
-        "
-        class="text-danger"
-      >
-        Veuillez saisir un numéro de téléphone valide (chiffres uniquement).
-      </div>
+      <div class="text-danger">{{ showErrorMessage("phone") }}</div>
     </div>
     <!-- Champ pour l'adresse postale -->
     <div class="form-group">
       <label>Adresse postale</label>
       <input type="text" formControlName="address" class="form-control" />
-      <div
-        *ngIf="
-          registrationForm.get('address')?.invalid &&
-          registrationForm.get('address')?.touched
-        "
-        class="text-danger"
-      >
-        L'adresse postale est requise.
-      </div>
+      <div class="text-danger">{{ showErrorMessage("address") }}</div>
     </div>
     <!-- Champ pour le mot de passe -->
     <div class="form-group">
       <label>Mot de passe</label>
       <input type="password" formControlName="password" class="form-control" />
-      <div
-        *ngIf="
-          registrationForm.get('password')?.invalid &&
-          registrationForm.get('password')?.touched
-        "
-        class="text-danger"
-      >
-        Le mot de passe est requis et doit contenir au moins 6 caractères.
-      </div>
+      <div class="text-danger">{{ showErrorMessage("password") }}</div>
     </div>
     <!-- Bouton pour soumettre les données -->
     <button type="submit" class="btn btn-primary">Inscripton</button>
