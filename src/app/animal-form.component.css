@@ -1,0 +1,21 @@
+.ng-submitted {
+    outline: 2px solid green
+}
+
+input.ng-dirty {
+    outline: 2px solid orange;
+}
+
+.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.alert-msg {
+    color: red;
+    font-size: 9pt;
+    display: none;
+}
+
+.ng-invalid.ng-touched .alert-msg {
+    display: block;
+}

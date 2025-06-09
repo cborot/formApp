@@ -1,0 +1,52 @@
+<p>{{ model | json }}</p>
+<form #animalForm="ngForm" (ngSubmit)="surEnvoi()" [hidden]="estEnvoye">
+    <label for="phone">Téléphone du propriétaire</label>
+    <input type="text" name="phone" id="phone" [(ngModel)]="model.phone" #phone="ngModel" required
+        phoneFormat="/^\+33\d{9}$/" />
+    @if (phone.hasError('phoneValidator')) {
+    <div class="alert-msg">Format invalide. Exemple : +33645789629</div>
+    }
+
+    <label for="nom">Nom</label>
+    <input type="text" name="nom" id="nom" [(ngModel)]="model.name" #nom="ngModel" minlength="3" maxlength="105"
+        pattern="[a-zA-Z ]+" required />
+    <!--div *ngIf="model.name.length === 0" class="alert-msg">
+        Le nom de l'animal est obligatoire
+    </div-->
+    <!-- Affichage conditionnel des erreurs via des directives natives Angular -->
+    @if (nom.hasError('required')) {
+    <div class="alert-msg">Le nom est obligatoire</div>
+    }
+    @if (nom.hasError('pattern')) {
+    <div class="alert-msg">Le nom ne doit contenir que des caractères alphanumériques</div>
+    }
+    @if (nom.hasError('minlength') || nom.hasError('maxlength')) {
+    <div class="alert-msg">Le nom doit contenir entre 3 et 15 caractères</div>
+    }
+
+    <label for="type">Type (espèce)</label>
+    <input type="text" name="type" id="type" [(ngModel)]="model.type" #type="ngModel" required />
+
+    <label for="desc">Description</label>
+    <input type="text" name="desc" id="desc" [(ngModel)]="model.desc" #desc="ngModel" required />
+    <p [hidden]="!desc.touched">Description a été touché</p>
+    @if (desc.hasError('required')) {
+    <div class="alert-msg">Description Obligatoire</div>
+    }
+
+    <label for="regime">Régime</label>
+    <select name="regime" id="regime" required [(ngModel)]="model.regime" #regime="ngModel">
+        <option *ngFor="let reg of regimes" [value]="reg">{{reg}}</option>
+    </select>
+
+    <button type="button" (click)="log(animalForm)">Log</button>
+    <button type="submit" [disabled]="animalForm.invalid">Envoyer</button>
+
+
+</form>
+
+<div [hidden]="!estEnvoye">
+    <h2>{{ model.name }}</h2>
+    <p>Le {{ model.name }} suit un régime alimentaire {{ model.regime }}.</p>
+    <p>Voici sa description : "{{ model.desc }}".</p>
+</div>
