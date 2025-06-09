@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
 //import { Animal } from './animal.model';
-import { Animal } from './types';
+import { Animal } from '../types';
 
 @Component({
   selector: 'animal-form',
